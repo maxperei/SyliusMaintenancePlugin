@@ -1,0 +1,7 @@
+{% extends '@SynoliaSyliusMaintenancePlugin/base.html.twig' %}
+
+{% block body %}
+	<div data-controller="synolia--sylius-maintenance-plugin--react" data-synolia--sylius-maintenance-plugin--react-props-value="{{ props|json_encode }}">
+		Loading... <i class="fas fa-cog fa-spin fa-3x"></i>
+	</div>
+{% endblock %}

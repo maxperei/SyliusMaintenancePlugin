@@ -51,8 +51,10 @@ final class MaintenanceEventsubscriber implements EventSubscriberInterface
             return;
         }
 
-        $responseContent = $this->twig->render('@SynoliaSyliusMaintenancePlugin/maintenance.html.twig', [
-            'custom_message' => $configuration->getCustomMessage(),
+        $responseContent = $this->twig->render('@SynoliaSyliusMaintenancePlugin/Shop/chakra.html.twig', [
+            'props' => [
+                'fullName' => $configuration->getCustomMessage(),
+            ],
         ]);
 
         $event->setResponse(new Response($responseContent, Response::HTTP_SERVICE_UNAVAILABLE));

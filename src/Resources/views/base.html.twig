@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale[:2] }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}{% endblock %}</title>
+	{{ encore_entry_script_tags('app-shop-entry', null, 'app.shop', attributes={defer: true}) }}
+</head>
+<body>
+	{% block body %}{% endblock %}
+</body>
+</html>

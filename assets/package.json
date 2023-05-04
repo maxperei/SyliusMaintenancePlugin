@@ -1,0 +1,26 @@
+{
+  "name": "@synolia/sylius-maintenance-plugin",
+  "version": "1.0.0",
+  "description": "a theme for maintenance page relied on ux-react",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.18.6"
+  },
+  "dependencies": {
+    "ux-react": "symfony/ux-react"
+  },
+  "symfony": {
+    "controllers": {
+      "react": {
+        "main": "controllers/render_controller.js",
+        "webpackMode": "eager",
+        "fetch": "eager",
+        "enabled": true
+      }
+    }
+  }
+}

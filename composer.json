@@ -5,13 +5,15 @@
     "keywords": [
         "sylius",
         "sylius-plugin",
-        "maintenance"
+        "maintenance",
+        "symfony-ux"
     ],
     "license": "EUPL-1.2",
     "require": {
         "php": "^8.0",
         "jaybizzle/crawler-detect": "^1.2",
         "sylius/sylius": "^1.10",
+        "symfony/ux-react": "^2.8",
         "webmozart/assert": "^1.11"
     },
     "require-dev": {
