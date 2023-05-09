@@ -127,6 +127,10 @@ framework:
                 adapter: cache.adapter.redis
 ```
 
+## Render React Component
+
+See [Render JSX Component](doc/REACT.md)
+
 ## Development
 
 See [How to contribute](CONTRIBUTING.md).

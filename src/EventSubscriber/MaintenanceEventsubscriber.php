@@ -53,7 +53,7 @@ final class MaintenanceEventsubscriber implements EventSubscriberInterface
 
         $responseContent = $this->twig->render('@SynoliaSyliusMaintenancePlugin/Shop/chakra.html.twig', [
             'props' => [
-                'fullName' => $configuration->getCustomMessage(),
+                'txt' => $configuration->getCustomMessage(),
             ],
         ]);
 
