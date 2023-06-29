@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{% block title %}{% endblock %}</title>
+	{{ encore_entry_link_tags('app-shop-entry', null, 'app.shop') }}
 	{{ encore_entry_script_tags('app-shop-entry', null, 'app.shop', attributes={defer: true}) }}
 </head>
 <body>
