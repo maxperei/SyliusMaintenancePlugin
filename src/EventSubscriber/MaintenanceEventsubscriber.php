@@ -53,7 +53,7 @@ final class MaintenanceEventsubscriber implements EventSubscriberInterface
 
         $responseContent = $this->twig->render('@SynoliaSyliusMaintenancePlugin/Shop/chakra.html.twig', [
             'props' => [
-                'txt' => $configuration->getCustomMessage(),
+                'txt' => $configuration->getCustomMessage() ?: 'The website is currently under maintenance.',
             ],
         ]);
 

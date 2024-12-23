@@ -1,7 +1,10 @@
 {% extends '@SynoliaSyliusMaintenancePlugin/base.html.twig' %}
 
 {% block body %}
-	<div data-controller="synolia--sylius-maintenance-plugin--react" data-synolia--sylius-maintenance-plugin--react-props-value="{{ props|json_encode }}">
+	<div
+		data-controller="synolia--sylius-maintenance-plugin--react"
+		data-synolia--sylius-maintenance-plugin--react-props-value="{{ props|json_encode }}"
+	>
         <main>{{ include('@SynoliaSyliusMaintenancePlugin/partials/loader.svg.twig') }}</main>
 	</div>
 {% endblock %}

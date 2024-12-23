@@ -1,12 +1,9 @@
-- once `make install` is finished you should run
-```shell
-php bin/console c:e -e dev
-```
 in the project folder you'll need to set up stimulus bridge in order to load js controllers by doing
 ```shell
-composer recipes:update symfony/webpack-encore-bundle
+composer recipes:install symfony/webpack-encore-bundle --force -v
 ```
-> hint: or remove the reference in `symfony.lock` in order to replay sf recipe from the beginning
+> `config/packages/webpack_encore.yaml`, `package.json`, `webpack.config.js` have to remain unchanged
+___
 - `package.json` should look like this :
 ```json
 {
@@ -38,22 +35,12 @@ composer recipes:update symfony/webpack-encore-bundle
     }
 }
 ```
-- leave `config/packages/webpack_encore.yaml` as-it-is :
-```yaml
-webpack_encore:
-    output_path: '%kernel.project_dir%/public/build/default'
-    builds:
-        admin: '%kernel.project_dir%/public/build/admin'
-        shop: '%kernel.project_dir%/public/build/shop'
-        app.admin: '%kernel.project_dir%/public/build/app/admin'
-        app.shop: '%kernel.project_dir%/public/build/app/shop'
-```
 ___
-- once files are generated successfully you'll need to configure `webpack.config.js` as follows :
+- once files are generated successfully you'll need to configure `webpack.config.js` as following :
 ```javascript
 const Encore = require('@symfony/webpack-encore');
 Encore
-    .addEntry('app-shop-entry', './assets/shop/entry.js')
+    .addEntry('app-shop-entry', './assets/app.js')
     .enableStimulusBridge('./assets/controllers.json')
     .enableReactPreset()
     .configureBabel(function(babelConfig) {
@@ -63,7 +50,9 @@ Encore
     })
 ;
 ```
-- don't forget to import the newly generated `./assets/app.js` in `./assets/shop/entry.js` and make sure `controllers.json` is fulfilled with :
+- you may have to delete `.babelrc` file
+___
+- don't forget to import the newly generated `./assets/app.js` in `./assets/shop/entry.js` and make sure `controllers.json` is fulfilled with (this should be done automatically):
 ```json
 {
     "controllers": {
@@ -83,6 +72,7 @@ Encore
     "entrypoints": []
 }
 ```
+also make sure to have @synolia vendor and don't forget to run `yarn build`
 ___
 - btw stimulus controller is called like this
 ```html
@@ -92,4 +82,9 @@ ___
 </div>
 ```
 ___
-> pro tips: you can use `yarn link` to make `yarn build --watch` possible
+you can import plugin scss files in `./assets/app.js` like this :
+```javascript
+import '@synolia/sylius-maintenance-plugin/styles/app.scss';
+```
+___
+> pro tips: you can use `yarn link` to make your changes watched inside vendor/synolia/sylius-maintenance-plugin/assets
